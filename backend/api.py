@@ -22,14 +22,6 @@ def help():
     
     Get data specific to a particular id:
         GET /your-desired-category/item-id
-
-    Front end interaction:
-    Go to any of the following:
-        /characters/
-        /spells/
-        /houses/
-    ...and there will be a list for each which uses the provided API.
-
     """
     return response.replace('\n', '<br>')
 
@@ -65,4 +57,4 @@ def house_request(house_id):
 @app.errorhandler(404)
 def not_found(e):
     return jsonify(error=str(e)), 404
-     
+
