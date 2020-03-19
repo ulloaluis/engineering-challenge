@@ -2,11 +2,13 @@
 
 import config
 import utils
+import cache
 
 from flask import Flask, request, jsonify, abort
 
 
 app = Flask(__name__)
+cache = Cache(CACHE_LIMIT) 
 
 @app.route('/')
 def help():
@@ -37,7 +39,7 @@ def character_request(character_id):
     Input: Unique character id or '-1' for a list of all character ids.
     Output: Json containing"""
     name = request.args.get("character_id", character_id)
-    data = utils.get_data(character_id, config.HP_CHARACTERS_FILE_PATH)
+    data = utils.get_data(character_id, config.HP_CHARACTERS_FILE_PATH, cache)
     if not data:
         abort(404, description=f"Invalid character id: {character_id}.")
     return jsonify(data)
@@ -46,7 +48,7 @@ def character_request(character_id):
 def spell_request(spell_id):
     """ TODO docstring """
     spell_id = request.args.get("spell_id", spell_id)
-    data = utils.get_data(spell_id, config.HP_SPELLS_FILE_PATH)
+    data = utils.get_data(spell_id, config.HP_SPELLS_FILE_PATH, cache)
     if not data:
         abort(404, description=f"Invalid spell id: {spell_id}.")
     return jsonify(data)
@@ -55,7 +57,7 @@ def spell_request(spell_id):
 def house_request(house_id):
     """ TODO docstring """
     house_id = request.args.get("house_id", house_id)
-    data = utils.get_data(house_id, config.HP_HOUSES_FILE_PATH)
+    data = utils.get_data(house_id, config.HP_HOUSES_FILE_PATH, cache)
     if not data:
         abort(404, description=f"Invalid house id: {house_id}.")
     return jsonify(data)

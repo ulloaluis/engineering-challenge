@@ -16,3 +16,7 @@ HP_HOUSES_FILE_PATH = os.path.join(DATA_DIR, 'harry-potter-houses.json')
 
 # Used when requesting all ids from a given data file.
 ALL_DATA = 'all'
+
+# Limit on cache before eviction begins.
+CACHE_LIMIT = 3
+
