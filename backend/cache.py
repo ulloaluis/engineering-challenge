@@ -6,12 +6,11 @@ import config
 """
 For the sake of this project, the cache is primarily used to
 keep the data files in-memory. This prevents having to read
-from disk each subsequent time we search for an item.
+from disk for each subsequent same-category item search.
 
 LRU (least recently used) cache, but essentially a wrapper
-around a plain old dict. Could be much more efficient.
-
-Note: no concurrency support
+around a plain old dict. Could be much more efficient and
+does not support concurrency.
 """
 
 class Cache:
@@ -27,6 +26,8 @@ class Cache:
             return
         if len(self.cache) == self.limit:
             self.evict()
+
+        assert len(self.cache) < self.limit
 
         self.cache[k] = v
 
@@ -49,7 +50,7 @@ class Cache:
 if __name__ == '__main__':
     print('WARNING: Running cache.py.')
 
-    # TESTING
+    # BASIC FUNCTIONALITY TESTING
     cache = Cache(1)
     cache.add('dog', 1)
     assert cache.get('dog') == 1

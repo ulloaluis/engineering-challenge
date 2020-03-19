@@ -4,9 +4,12 @@ import config
 import json
 
 def _load_json(filename, cache):
-    # Loads json file, storing it in cache if needed.
-    # _ prefix implies that functions interacting with
-    # cache contents should not be called outside of utils.py.
+    """ Loads json file, storing it in cache if needed.
+
+        _ prefix implies that functions interacting with
+        cache contents should not be called outside of utils.py
+        or testing files.
+    """
     data = cache.get(filename)
     if not data:
         with open(filename) as f:
