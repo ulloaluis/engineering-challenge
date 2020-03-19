@@ -1,0 +1,9 @@
+# Auto generated files
+.DS_Store
+__pycache__
+*.pyc
+
+# Virtual environment (Python 3.5.2)
+p352
+
+
