@@ -3,7 +3,7 @@
 __pycache__
 *.pyc
 
-# Virtual environment (Python 3.5.2)
-p352
+# Virtual environment (Python 3.6.8)
+p368
 
 
