@@ -76,13 +76,3 @@ app = create_app()
 if __name__ == '__main__':
     app.run(debug=True)
 
-    # EXAMPLE USAGE
-    #character_ids = character_request(config.ALL_DATA)
-    #characters = [character_request(cid) for cid in character_ids]
-
-    #spell_ids = spell_request(config.ALL_DATA)
-    #spells = [spell_request(sid) for sid in spell_ids]
-
-    #house_ids = house_request(config.ALL_DATA)
-    #houses = [house_request(hid) for hid in house_ids]
-
