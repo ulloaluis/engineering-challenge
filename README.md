@@ -14,7 +14,7 @@ If you would like to run the API tests (apitests.py), you will have to install F
 ## Data Sources
 - Harry Potter Data - https://www.potterapi.com/ (specifically from the data/ folder, which I assumed was complete/sufficient)
 
-## Resouces Used
+## Resources Used
 - Link to the resources you used here, if any.
 
 Nothing beyond Flask documentation and stackoverflow posts for miscellaneous bugs.
